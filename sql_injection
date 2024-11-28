@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection Login</title>
+    <script>
+        function simulateSQLInjection() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Simulated SQL query
+            const query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+
+            // Display the query for educational purposes
+            document.getElementById("queryDisplay").innerText = "SQL Query: " + query;
+
+            // Check for SQL injection bypass
+            if (username.includes("' OR '1'='1")) {
+                window.location.href = "success.html"; // Redirect to success page
+            } else {
+                alert("Invalid credentials. Try again!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>SQL Injection Login</h1>
+    <p>Enter your login details:</p>
+    <form onsubmit="event.preventDefault(); simulateSQLInjection();">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password">
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+    <p id="queryDisplay" style="font-family: monospace; color: #007bff; margin-top: 20px;"></p>
+    <p><strong>Try this:</strong> For the username, enter <code>' OR '1'='1</code> and leave the password blank!</p>
+</body>
+</html>
