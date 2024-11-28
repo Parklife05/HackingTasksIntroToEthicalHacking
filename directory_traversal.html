@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Traversal</title>
+    <script>
+        function simulateTraversal() {
+            const path = document.getElementById("path").value;
+
+            // Check if the path matches the restricted folder
+            if (path === "/restricted/secret.html") {
+                window.location.href = "restricted/secret.html"; // Redirect to the secret page
+            } else {
+                alert("Access denied. Try again!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Directory Traversal Challenge</h1>
+    <p>Access the Super Secret Restricted Page by entering the correct file path:</p>
+    <form onsubmit="event.preventDefault(); simulateTraversal();">
+        <label for="path">Path:</label>
+        <input type="text" id="path" name="path" placeholder="Enter file path">
+        <br><br>
+        <button type="submit">Access</button>
+    </form>
+    <p><strong>Hint:</strong> The path is <code>/restricted/secret.html</code>. Can you find it?</p>
+</body>
+</html>
