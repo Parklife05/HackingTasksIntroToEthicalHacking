@@ -3,99 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directory Traversal</title>
-    <script>
-        function simulateTraversal() {
-            const path = document.getElementById("path").value;
-
-            // Check if the path matches the restricted folder
-            if (path === "/restricted/secret.html") {
-                window.location.href = "restricted/secret.html"; // Redirect to the secret page
-            } else {
-                alert("Access denied. Try again!");
-            }
-        }
-    </script>
+    <title>Directory Traversal Challenge</title>
 </head>
 <body>
     <h1>Directory Traversal Challenge</h1>
-    <p>Access the Super Secret Restricted Page by entering the correct file path:</p>
-    <form onsubmit="event.preventDefault(); simulateTraversal();">
-        <label for="path">Path:</label>
+    <p>Your mission: Use `../` to navigate to the secret file located in the parent directory.</p>
+    <form onsubmit="event.preventDefault(); checkPath();">
+        <label for="path">Enter File Path:</label>
         <input type="text" id="path" name="path" placeholder="Enter file path">
         <br><br>
-        <button type="submit">Access</button>
+        <button type="submit">Submit</button>
     </form>
-    <p><strong>Hint:</strong> The path is <code>/restricted/secret.html</code>. Can you find it?</p>
-    <style>
-    .home-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #ffffff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-    }
-    .home-button:hover {
-        background-color: #0056b3;
-        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
-</style>
+    <p id="result" style="color: red; font-weight: bold;"></p>
 
-    <style>
-    .hint-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffff;
-        background-color: #28a745;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    .hint-button:hover {
-        background-color: #218838;
-        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
-    .hint-text {
-        margin-top: 20px;
-        font-size: 16px;
-        font-style: italic;
-        color: #333;
-        display: none;
-    }
-</style>
+    <script>
+        function checkPath() {
+            const path = document.getElementById("path").value;
+            if (path.trim() === "../secret.html") {
+                document.getElementById("result").innerText = "✅ Success! You found the secret file!";
+            } else {
+                document.getElementById("result").innerText = "❌ Incorrect path. Try again!";
+            }
+        }
+    </script>
 
-<!-- Hint Button -->
-<p>
-    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
-</p>
-
-<!-- Hidden Hint Text -->
-<p id="hint" class="hint-text">Hint: Use `../` to navigate to the parent directory.</p>    
-<script>
-    function showHint() {
-        const hint = document.getElementById("hint");
-        hint.style.display = "block";
-    }
-</script>
-
-
-<p>
-    <a href="index.html" class="home-button">🏠 Back to Home</a>
-</p>
+    <!-- Home button -->
+    <p><a href="index.html" style="color: blue; text-decoration: none;">🏠 Back to Home</a></p>
 </body>
 </html>
