@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Manipulation Challenge</title>
+    <style>
+        .hint-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .hint-button:hover {
+            background-color: #218838;
+        }
+        .hint-text {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>URL Manipulation Challenge</h1>
+    <p>Your mission: Modify the URL to bypass the security check.</p>
+
+    <p>
+        <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+    </p>
+    <p id="hint" class="hint-text">Hint: Add <code>?access=true</code> to the end of the URL.</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("access") === "true") {
+            document.body.innerHTML = `
+                <h1>🎉 Access Granted! 🎉</h1>
+                <p>Congratulations! You've bypassed the security check.</p>
+                <a href="../index.html" style="color: blue;">🏠 Back to Home</a>
+            `;
+        } else {
+            document.body.innerHTML += `
+                <p style="color: red; font-weight: bold;">❌ Access Denied. Try modifying the URL!</p>
+            `;
+        }
+
+        function showHint() {
+            const hint = document.getElementById("hint");
+            hint.style.display = "block";
+        }
+    </script>
+
+    <p><a href="../index.html" style="color: blue;">🏠 Back to Home</a></p>
+</body>
+</html>
