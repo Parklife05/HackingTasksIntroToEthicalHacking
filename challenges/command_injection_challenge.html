@@ -49,11 +49,8 @@
     <script>
         function validateCommand() {
             const command = document.getElementById("command").value;
-
             if (command === "ls" || command === "dir") {
-    window.location.href = "challenges/secret_credentials.html";
-}
-          
+    window.location.href = "challenges/secret_credentials.html";}
             else {
                 document.getElementById("result").innerText = "❌ Invalid command. Try again!";
             }
