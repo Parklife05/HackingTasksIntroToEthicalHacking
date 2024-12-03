@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Challenge</title>
+</head>
+<body>
+    <h1>XSS Challenge</h1>
+    <p>Your mission: Inject a script into this form to trigger a popup.</p>
+    <form onsubmit="event.preventDefault(); displayComment();">
+        <label for="comment">Your Comment:</label><br>
+        <input type="text" id="comment" name="comment" placeholder="Enter your comment">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="displayArea" style="color: green;"></p>
+
+    <script>
+        function displayComment() {
+            const comment = document.getElementById("comment").value;
+            document.getElementById("displayArea").innerHTML = comment;
+        }
+    </script>
+</body>
+</html>
