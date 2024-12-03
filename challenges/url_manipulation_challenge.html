@@ -40,12 +40,8 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("access") === "true") {
-            document.body.innerHTML = `
-                <h1>🎉 Access Granted! 🎉</h1>
-                <p>Congratulations! You've bypassed the security check.</p>
-                <a href="../index.html" style="color: blue;">🏠 Back to Home</a>
-            `;
-        } else {
+    window.location.href = "challenge_success.html";}       
+        else {
             document.body.innerHTML += `
                 <p style="color: red; font-weight: bold;">❌ Access Denied. Try modifying the URL!</p>
             `;
