@@ -58,6 +58,50 @@
         transform: translateY(-2px);
     }
 </style>
+    <style>
+    .hint-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .hint-button:hover {
+        background-color: #218838;
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
+    .hint-text {
+        margin-top: 20px;
+        font-size: 16px;
+        font-style: italic;
+        color: #333;
+        display: none;
+    }
+</style>
+
+<!-- Hint Button -->
+<p>
+    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+</p>
+
+<!-- Hidden Hint Text -->
+<p id="hint" class="hint-text">Hint: Use "View Page Source" to find hidden comments in the code.</p>
+    
+<script>
+    function showHint() {
+        const hint = document.getElementById("hint");
+        hint.style.display = "block";
+    }
+</script>
 
 <p>
     <a href="index.html" class="home-button">🏠 Back to Home</a>
