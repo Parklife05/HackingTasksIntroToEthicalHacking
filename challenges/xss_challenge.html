@@ -14,59 +14,17 @@
         <br><br>
         <button type="submit">Submit</button>
     </form>
-    <p id="displayArea" style="color: green;"></p>
+    <div id="displayArea" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
 
     <script>
         function displayComment() {
             const comment = document.getElementById("comment").value;
+            // Directly insert user input into the DOM
             document.getElementById("displayArea").innerHTML = comment;
         }
     </script>
-    <style>
-    .hint-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffff;
-        background-color: #28a745;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    .hint-button:hover {
-        background-color: #218838;
-        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
-    .hint-text {
-        margin-top: 20px;
-        font-size: 16px;
-        font-style: italic;
-        color: #333;
-        display: none;
-    }
-</style>
 
-<!-- Hint Button -->
-<p>
-    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
-</p>
-
-<!-- Hidden Hint Text -->
-<p id="hint" class="hint-text">Hint: Try entering a script like <code>&lt;script&gt;alert('Hacked!')&lt;/script&gt;</code> in the input field.</p>
-
-<script>
-    function showHint() {
-        const hint = document.getElementById("hint");
-        hint.style.display = "block";
-    }
-</script>
-
-<p><a href="../index.html" style="color: blue; text-decoration: none;">🏠 Back to Home</a></p>
+    <!-- Home button -->
+    <p><a href="../index.html" style="color: blue; text-decoration: none;">🏠 Back to Home</a></p>
 </body>
 </html>
