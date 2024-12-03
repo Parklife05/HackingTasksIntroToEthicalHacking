@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Injection Challenge</title>
+    <style>
+        .hint-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .hint-button:hover {
+            background-color: #218838;
+        }
+        .hint-text {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Command Injection Challenge</h1>
+    <p>Your mission: Use the correct command to reveal the hidden files.</p>
+
+    <form onsubmit="event.preventDefault(); validateCommand();">
+        <label for="command">Enter Command:</label><br>
+        <input type="text" id="command" placeholder="Enter command (e.g., ls)">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>
+        <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+    </p>
+    <p id="hint" class="hint-text">Hint: Try commands like <code>ls</code> or <code>dir</code> to list files.</p>
+
+    <p id="result" style="color: green; font-weight: bold; margin-top: 20px;"></p>
+
+    <script>
+        function validateCommand() {
+            const command = document.getElementById("command").value;
+
+            if (command === "ls" || command === "dir") {
+    window.location.href = "challenge_success.html";
+}
+          
+            else {
+                document.getElementById("result").innerText = "❌ Invalid command. Try again!";
+            }
+        }
+
+        function showHint() {
+            const hint = document.getElementById("hint");
+            hint.style.display = "block";
+        }
+    </script>
+
+    <p><a href="../index.html" style="color: blue;">🏠 Back to Home</a></p>
+</body>
+</html>
