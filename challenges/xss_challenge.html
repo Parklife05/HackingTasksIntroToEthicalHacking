@@ -51,24 +51,27 @@
     <p>
         <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
     </p>
-    <p id="hint" class="hint-text">Hint: Use the following input: &lt;script&gt;window.location.href='success.html'&lt;/script&gt;</p>
+    <p id="hint" class="hint-text">
+        Hint: Use the following input: <code>&lt;script&gt;window.location.href='success.html'&lt;/script&gt;</code>
+    </p>
 
-    <!-- Script -->
+    <!-- JavaScript -->
     <script>
         function validateInput() {
             const comment = document.getElementById("comment").value;
 
-            // Safely check if the user input matches the expected script
+            // Check if the input matches the correct script
             if (comment.trim() === "<script>window.location.href='success.html'</script>") {
-                // Redirect to success page
+                // Redirect to the success page
                 window.location.href = "success.html";
             } else {
-                // Show error message if input is incorrect
+                // Show an error if the input is incorrect
                 alert("❌ Incorrect input. Try again!");
             }
         }
 
         function showHint() {
+            // Show the hint text when the hint button is clicked
             const hint = document.getElementById("hint");
             hint.style.display = "block";
         }
