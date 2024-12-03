@@ -37,35 +37,34 @@
 </head>
 <body>
     <h1>XSS Challenge</h1>
-    <p>Your mission: Inject a script into this form to trigger a popup.</p>
+    <p>Your mission: Inject a script into this form to redirect to the success page.</p>
 
     <!-- Form -->
-    <form onsubmit="event.preventDefault(); displayComment();">
+    <form onsubmit="event.preventDefault(); validateInput();">
         <label for="comment">Your Comment:</label><br>
         <input type="text" id="comment" name="comment" placeholder="Enter your comment">
         <br><br>
         <button type="submit">Submit</button>
     </form>
     
-    <!-- Display area -->
-    <div id="displayArea" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
-
     <!-- Hint button -->
     <p>
         <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
     </p>
-    <p id="hint" class="hint-text">Hint: Try entering <code>&lt;script&gt;alert('Hacked!')&lt;/script&gt;</code>.</p>
+    <p id="hint" class="hint-text">Hint: Try entering <code>&lt;script&gt;window.location.href='success.html'&lt;/script&gt;</code>.</p>
 
     <!-- Script -->
     <script>
-        // Function to display the user input
-        function displayComment() {
+        function validateInput() {
             const comment = document.getElementById("comment").value;
-            // Directly insert the user input into the DOM (deliberately unsafe)
-            document.getElementById("displayArea").innerHTML = comment;
+            // Check if the correct script was entered
+            if (comment.trim() === "<script>window.location.href='success.html'</script>") {
+                window.location.href = "success.html";
+            } else {
+                alert("❌ Incorrect input. Try again!");
+            }
         }
 
-        // Function to display the hint
         function showHint() {
             const hint = document.getElementById("hint");
             hint.style.display = "block";
