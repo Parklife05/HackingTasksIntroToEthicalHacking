@@ -23,26 +23,49 @@
         }
     </script>
     <style>
-    .home-button {
+    .hint-button {
         display: inline-block;
         padding: 10px 20px;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         color: #ffffff;
-        background-color: #007bff;
+        background-color: #28a745;
         border: none;
         border-radius: 5px;
         text-decoration: none;
         text-align: center;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
+        cursor: pointer;
     }
-    .home-button:hover {
-        background-color: #0056b3;
+    .hint-button:hover {
+        background-color: #218838;
         box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
         transform: translateY(-2px);
     }
+    .hint-text {
+        margin-top: 20px;
+        font-size: 16px;
+        font-style: italic;
+        color: #333;
+        display: none;
+    }
 </style>
+
+<!-- Hint Button -->
+<p>
+    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+</p>
+
+<!-- Hidden Hint Text -->
+<p id="hint" class="hint-text">Hint: Try entering a script like <code>&lt;script&gt;alert('Hacked!')&lt;/script&gt;</code> in the input field.</p>
+
+<script>
+    function showHint() {
+        const hint = document.getElementById("hint");
+        hint.style.display = "block";
+    }
+</script>
 
 <p>
     <a href="index.html" class="home-button">🏠 Back to Home</a>
