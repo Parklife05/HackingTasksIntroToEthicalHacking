@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local File Inclusion (LFI) Challenge</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #111; color: #0f0; text-align: center; }
+        .output { margin-top: 20px; padding: 10px; border: 1px dashed #0f0; width: 80%; margin-left: auto; margin-right: auto; }
+        input { padding: 5px; width: 300px; }
+        button { padding: 5px 10px; margin: 5px; }
+        .hint-button { background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .hint-button:hover { background-color: #218838; }
+        .hint-text { margin-top: 10px; color: #0ff; display: none; }
+        .home-button { display: inline-block; margin-top: 30px; color: #0ff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🕵️‍♂️ Local File Inclusion (LFI) Challenge</h1>
+    <p>Try to load a file from the server by entering the file path below!</p>
+    <p>Hint: Sometimes files are stored outside of the folder you're allowed to access… 😉</p>
+
+    <input type="text" id="filepath" placeholder="Enter file path">
+    <button onclick="checkPath()">Submit</button>
+    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+
+    <div id="result" class="output"></div>
+    <p id="hint" class="hint-text">Hint: Try typing <code>../../../../etc/passwd</code> into the box!</p>
+
+    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
+
+    <script>
+        function checkPath() {
+            const path = document.getElementById("filepath").value.trim();
+            const validPaths = ["../../../../etc/passwd", "../../../etc/passwd", "../../../../../etc/passwd"];
+            const resultBox = document.getElementById("result");
+
+            if (validPaths.includes(path)) {
+                // Redirect to success page
+                window.location.href = "lfi_success.html";
+            } else {
+                resultBox.innerHTML = "❌ File not found. Try again!";
+            }
+        }
+
+        function showHint() {
+            const hint = document.getElementById("hint");
+            hint.style.display = "block";
+        }
+    </script>
+</body>
+</html>
