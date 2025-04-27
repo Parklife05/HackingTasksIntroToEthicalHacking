@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LFI Challenge Success!</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #111; color: #0f0; text-align: center; }
+        .output { margin-top: 20px; padding: 10px; border: 1px dashed #0f0; width: 80%; margin-left: auto; margin-right: auto; }
+        .home-button { display: inline-block; margin-top: 30px; color: #0ff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🎉 Success! You've Exploited Local File Inclusion!</h1>
+    <p>Here's the example contents of <code>/etc/passwd</code>:</p>
+
+    <div class="output">
+        root:x:0:0:root:/root:/bin/bash<br>
+        admin:x:1001:1001:Admin User:/home/admin:/bin/bash<br>
+        student:x:1002:1002:Student User:/home/student:/bin/bash<br>
+        guest:x:1003:1003:Guest User:/home/guest:/bin/bash<br>
+    </div>
+
+    <p>⚠️ This is why websites must validate inputs carefully!</p>
+    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
+</body>
+</html>
