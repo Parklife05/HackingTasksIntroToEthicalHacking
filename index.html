@@ -2,57 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethical Hacking Tasks</title>
+    <title>🔥 Ethical Hacking Challenges Hub</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
-            color: #333;
-            padding: 20px;
+        body { 
+            text-align: center; 
+            background-color: #0a0a0a; 
+            color: #00ffcc; 
+            font-family: 'Courier New', Courier, monospace; 
         }
-        h1 {
-            color: #007bff;
+        h1 { 
+            color: #ff00ff; 
+            font-size: 3em; 
+            text-shadow: 2px 2px #000; 
+            animation: glow 1.5s infinite alternate; 
         }
-        .task-link {
-            display: block;
-            margin: 15px 0;
-            font-size: 20px;
-            text-decoration: none;
-            color: #007bff;
-            border: 2px solid #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            width: fit-content;
-            margin: 10px auto;
-            transition: all 0.3s ease-in-out;
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
         }
-        .task-link:hover {
-            background-color: #007bff;
-            color: #fff;
+        a { 
+            color: #00ffcc; 
+            text-decoration: none; 
+            display: block; 
+            margin: 15px 0; 
+            font-size: 20px; 
+            transition: transform 0.2s, color 0.3s;
         }
-        footer {
+        a:hover { 
+            color: #ff00ff; 
+            transform: scale(1.1); 
+        }
+        .section-title {
+            margin-top: 40px;
+            font-size: 1.5em;
+            color: #ff00ff;
+            border-bottom: 1px dashed #00ffcc;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .footer {
             margin-top: 50px;
-            font-size: 14px;
-            color: #666;
+            font-size: 1.1em;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Ethical Hacking Challenges</h1>
-    <p>Select a task below to get started:</p>
-    <a href="challenges/login.html" class="task-link">Task 1: Hidden Credentials</a>
-    <a href="challenges/sql_injection.html" class="task-link">Task 2: SQL Injection Login Bypass</a>
-    <a href="challenges/directory_traversal.html" class="task-link">Task 3: Directory Traversal</a>
-    <a href="challenges/url_manipulation_challenge.html" class="task-link">Task 4: URL manipulation</a>
-    <a href="challenges/command_injection_challenge.html" class="task-link">Task 5: Command Injection</a>    
-    <a href="challenges/lfi_challenge.html" class="task-link">Task 6: Local File Inclusion</a>
+    <h1>💻 Ethical Hacking Challenge Hub 💥</h1>
+    <p>🚀 Test your hacking skills and learn about real-world vulnerabilities!</p>
 
-    
+    <div class="section-title">Core Challenges</div>
+    <a href="challenges/url_manipulation.html">🔗 URL Manipulation Challenge</a>
+    <a href="challenges/directory_traversal.html">📂 Directory Traversal Challenge</a>
+    <a href="challenges/command_injection.html">💻 Command Injection Challenge</a>
+    <a href="challenges/login.html">🔐 Hidden Credentials / Weak Login</a>
+    <a href="challenges/lfi_challenge.html">🗂️ Local File Inclusion (LFI) Challenge</a>
 
-    <footer>
-        <p>Designed for educational purposes only. Stay ethical! 😊</p>
-    </footer>
+    <div class="section-title">Extra Challenges</div>
+    <a href="challenges/brute_force_guessing.html">🔓 Brute Force Password Guessing</a>
+    <a href="challenges/captcha_bypass.html">🤖 CAPTCHA Bypass</a>
+    <a href="challenges/hidden_url.html">🕵️‍♂️ Hidden URL Guessing</a>
+    <a href="challenges/user_agent_challenge.html">🧑‍💻 User-Agent Spoofing Simulation</a>
+    <a href="challenges/hidden_image.html">🖼️ Hidden Image Clue</a>
+    <a href="challenges/logic_flaw.html">💸 Logic Flaw (Buy for £0)</a>
+
+    <p class="footer">💡 Remember: Hack ethically, learn responsibly, and have fun! 🕶️</p>
 </body>
 </html>
