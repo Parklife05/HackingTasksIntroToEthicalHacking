@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Source Code Viewer</title>
+    <title>Source Code Screenshot</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #111; color: #0f0; padding: 20px; text-align: center; }
-        .code-box { border: 1px dashed #0f0; padding: 10px; background-color: #222; display: inline-block; text-align: left; margin-top: 20px; }
-        .home-button { display: inline-block; margin-top: 30px; color: #0ff; text-decoration: none; font-weight: bold; }
+        body { 
+            background-color: #111; 
+            color: #0f0; 
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center; 
+        }
+        img {
+            max-width: 90%;
+            border: 2px dashed #0f0;
+            margin-top: 20px;
+        }
+        .home-button { 
+            display: inline-block; 
+            margin-top: 30px; 
+            color: #0ff; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
     </style>
-</head> 
+</head>
 <body>
-    <h1>💻 Source Code</h1>
-    <p>Below is the source code of the login page. Can you spot the hidden credentials?</p>
+    <h1>💻 View the Developer's Source Code Comments</h1>
+    <p>Here’s a screenshot of the source code. Can you find the hidden credentials?</p>
 
-    <div class="code-box">
-        &lt;!-- TODO: Remove before deployment! --&gt;<br>
-        &lt;!-- Username: admin --&gt;<br>
-        &lt;!-- Password: Secure123! --&gt;<br>
-    </div>
+    <img src="login_source_code.png" alt="Screenshot of source code showing hidden credentials">
 
-    <p>👀 Use these credentials to log in through the login page!</p>
     <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
 </body>
 </html>
