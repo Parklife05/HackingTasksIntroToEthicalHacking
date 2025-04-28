@@ -2,95 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directory Traversal Challenge</title>
+    <title>📂 Directory Traversal Challenge</title>
     <style>
-        .home-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
-        .home-button:hover {
-            background-color: #0056b3;
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
-        .hint-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .hint-button:hover {
-            background-color: #218838;
-        }
-        .hint-text {
-            margin-top: 20px;
-            font-size: 16px;
-            font-style: italic;
-            color: #333;
-            display: none;
-        }
+        body { background-color: #0a0a0a; color: #00ffcc; font-family: 'Courier New', Courier, monospace; text-align: center; padding: 50px; }
+        h1 { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; animation: glow 1.5s infinite alternate; }
+        @keyframes glow { from { text-shadow: 0 0 10px #ff00ff; } to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; } }
+        .hint { margin-top: 20px; font-style: italic; color: #888; display: none; }
+        .home-button, .hint-button { padding: 12px 25px; background-color: #00ffcc; color: #0a0a0a; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; margin-top: 40px; transition: background-color 0.3s, transform 0.2s; }
+        .home-button:hover, .hint-button:hover { background-color: #ff00ff; color: #ffffff; transform: scale(1.1); }
+        .challenge-box { border: 2px dashed #ff00ff; padding: 20px; margin: 30px auto; width: 80%; }
     </style>
 </head>
 <body>
-    <h1>Directory Traversal Challenge</h1>
-    <p>
-        Your mission: Start at the following URL and navigate to the secret file by providing the correct relative path.  
-        **Starting URL**: <code>https://parklife05.github.io/HackingTasksIntroToEthicalHacking/challenges/directory_traversal.html</code>
-    </p>
-    <p>Use <code>../</code> to move up one directory. For example, to navigate to <code>secret.html</code> in the parent directory, you would enter <code>../secret.html</code>.</p>
-
-    <form onsubmit="event.preventDefault(); checkPath();">
-        <label for="path">Enter File Path:</label><br>
-        <input type="text" id="path" name="path" placeholder="Enter file path (e.g., ../secret.html)">
-        <br><br>
-        <button type="submit">Submit</button>
-    </form>
-    <p id="result" style="color: red; font-weight: bold;"></p>
-
-    <script>
-        function checkPath() {
-            const path = document.getElementById("path").value;
-            if (path.trim() === "../secret.html") {
-                document.getElementById("result").innerHTML = `
-                    ✅ Success! You've navigated to the secret file!  
-                    <a href="../secret.html" style="color: blue;">View the Secret File</a>
-                `;
-            } else {
-                document.getElementById("result").innerText = "❌ Incorrect path. Try again!";
-            }
-        }
-    </script>
-
-    <p>
+    <h1>📂 Directory Traversal Challenge</h1>
+    <div class="challenge-box">
+        <p>🚀 Your mission: The secret file isn't in this folder... but maybe it's in the parent directory? 👀</p>
+        <p>Use your hacking skills to explore the URL paths directly!</p>
+        <p>💡 Can you traverse to <code>../secret.html</code>?</p>
         <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
-    </p>
-    <p id="hint" class="hint-text">
-        Hint: The file is located in the parent directory. Start your path with <code>../</code> to move up one directory.
-    </p>
+        <p id="hint" class="hint">Hint: Try typing <code>../secret.html</code> right into the browser's address bar at the end of this URL!</p>
+    </div>
+    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
+
     <script>
         function showHint() {
-            const hint = document.getElementById("hint");
-            hint.style.display = "block";
+            document.getElementById('hint').style.display = "block";
         }
     </script>
-
-    <p><a href="../index.html" class="home-button">🏠 Back to Home</a></p>
 </body>
 </html>
