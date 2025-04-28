@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🎉 URL Manipulation Success!</title>
+    <title>🎉 Admin Access</title>
     <style>
         body { background-color: #0a0a0a; color: #00ffcc; font-family: 'Courier New', Courier, monospace; text-align: center; padding: 50px; }
         h1 { color: #ff00ff; font-size: 3em; text-shadow: 0 0 10px #ff00ff; animation: pulse 1s infinite alternate; }
@@ -11,15 +11,53 @@
         @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
         .celebrate { font-size: 5em; margin: 30px 0; animation: spin 2s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .home-button { padding: 12px 25px; background-color: #00ffcc; color: #0a0a0a; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; margin-top: 40px; transition: background-color 0.3s, transform 0.2s; }
-        .home-button:hover { background-color: #ff00ff; color: #ffffff; transform: scale(1.1); }
+        .home-button, .hint-button { padding: 12px 25px; background-color: #00ffcc; color: #0a0a0a; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; margin-top: 40px; transition: background-color 0.3s, transform 0.2s; }
+        .home-button:hover, .hint-button:hover { background-color: #ff00ff; color: #ffffff; transform: scale(1.1); }
+        .hint { margin-top: 20px; font-style: italic; color: #888; display: none; }
+        table { margin: 20px auto; border-collapse: collapse; width: 80%; }
+        th, td { border: 1px solid #00ffcc; padding: 10px; text-align: center; }
+        th { background-color: #222; color: #ff00ff; }
+        td { background-color: #111; }
     </style>
 </head>
 <body>
     <div class="celebrate">🎉🔗🎉</div>
     <h1>💥 Admin Access Achieved! 💥</h1>
-    <p class="message">Well played, hacker! You manipulated the URL and found the admin page!</p>
-    <p class="message">Lesson: Sensitive pages shouldn't be protected by hidden URLs alone. 🕵️‍♂️</p>
+    <p class="message">Nice job! You manipulated the URL and found the admin page!</p>
+    <p class="message">But wait... is there an even higher level of access? 🤔</p>
+    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
+    <p id="hint" class="hint">Hint: Try adding <code>?access=true</code> at the end of the URL...</p>
     <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
+
+    <script>
+        function showHint() {
+            document.getElementById('hint').style.display = "block";
+        }
+
+        // Check for Super Admin unlock!
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('access') === 'true') {
+            document.body.innerHTML += `
+                <div class="celebrate">🚀👑🚀</div>
+                <h1 style="color:#ff00ff;">💎 SUPER ADMIN MODE UNLOCKED! 💎</h1>
+                <p class="message">You've gone beyond regular admin... Welcome, Super Admin Hacker! 🕶️</p>
+                <h2 style="color:#00ffcc;">🗂️ User Credentials</h2>
+                <table>
+                    <tr><th>Username</th><th>Password</th></tr>
+                    <tr><td>admin</td><td>password123</td></tr>
+                    <tr><td>j.smith</td><td>letmein</td></tr>
+                    <tr><td>root</td><td>toor</td></tr>
+                </table>
+                <h2 style="color:#00ffcc;">💳 Bank Account Details</h2>
+                <table>
+                    <tr><th>Account Holder</th><th>Account Number</th><th>Sort Code</th><th>Balance</th></tr>
+                    <tr><td>Jim Hacker</td><td>12345678</td><td>01-02-03</td><td>£1,000,000</td></tr>
+                    <tr><td>Ada Lovelace</td><td>87654321</td><td>04-05-06</td><td>£42,000</td></tr>
+                    <tr><td>Linus T.</td><td>11223344</td><td>07-08-09</td><td>£500,000</td></tr>
+                </table>
+                <p class="message">Lesson: Relying on hidden parameters is not secure — always check permissions on the server side!</p>
+                <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>`;
+        }
+    </script>
 </body>
 </html>
