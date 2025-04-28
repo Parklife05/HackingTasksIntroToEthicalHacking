@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>CAPTCHA Bypass Challenge</title></head>
+<body>
+    <h1>🤖 CAPTCHA Bypass Challenge</h1>
+    <p>What is 2 + 2?</p>
+    <input type="text" id="captcha" placeholder="Enter your answer">
+    <button onclick="checkCaptcha()">Submit</button>
+    <button onclick="showHint()">💡 Show Hint</button>
+    <p id="result"></p>
+    <p id="hint" style="display:none;">Hint: The code behind this page might give it away… 😉</p>
+    <script>
+        function checkCaptcha() {
+            const answer = document.getElementById('captcha').value.trim();
+            if (answer === "4") {
+                window.location.href = "captcha_success.html";
+            } else {
+                document.getElementById('result').innerText = "❌ Wrong answer!";
+            }
+        }
+        function showHint() {
+            document.getElementById('hint').style.display = "block";
+        }
+    </script>
+    <p><a href="../index.html">🏠 Back to Home</a></p>
+</body>
+</html>
