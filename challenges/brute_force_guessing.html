@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force Password Guessing Challenge</title>
+</head>
+<body>
+    <h1>🔐 Brute Force Password Guessing</h1>
+    <p>Guess the password from these common passwords:</p>
+    <ul>
+        <li>123456</li>
+        <li>password</li>
+        <li>qwerty</li>
+        <li>letmein ✅</li>
+        <li>admin</li>
+    </ul>
+    <input type="text" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Submit</button>
+    <button onclick="showHint()">💡 Show Hint</button>
+    <p id="result"></p>
+    <p id="hint" style="display:none;">Hint: It's one of the easier ones… 👀</p>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value.trim();
+            if (password === "letmein") {
+                window.location.href = "brute_force_success.html";
+            } else {
+                document.getElementById('result').innerText = "❌ Incorrect password, try again!";
+            }
+        }
+        function showHint() {
+            document.getElementById('hint').style.display = "block";
+        }
+    </script>
+    <p><a href="../index.html">🏠 Back to Home</a></p>
+</body>
+</html>
