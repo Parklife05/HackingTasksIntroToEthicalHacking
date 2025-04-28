@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🖼️ Hidden Image Challenge</title>
+    <style>
+        body { background-color: #0a0a0a; color: #00ffcc; font-family: 'Courier New', Courier, monospace; text-align: center; padding: 50px; }
+        h1 { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; animation: glow 1.5s infinite alternate; }
+        @keyframes glow { from { text-shadow: 0 0 10px #ff00ff; } to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; } }
+        .challenge-box { border: 2px dashed #ff00ff; padding: 20px; margin: 30px auto; width: 80%; }
+        .button, .home-button { margin-top: 20px; padding: 10px 20px; background-color: #00ffcc; color: #0a0a0a; border-radius: 6px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+        .button:hover, .home-button:hover { background-color: #ff00ff; color: #fff; transform: scale(1.05); }
+        .hint { margin-top: 15px; font-style: italic; color: #888; display: none; }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Hidden Image Challenge</h1>
+    <div class="challenge-box">
+        <p>🎯 Somewhere on this site is a secret image file with a hidden message in its filename...</p>
+        <p>Try guessing image names like <code>clue.png</code>, <code>secret.jpg</code>, or <code>hidden_message.png</code> by typing them into the URL bar!</p>
+        <button class="button" onclick="showHint()">💡 Show Hint</button>
+        <p id="hint" class="hint">Hint: The file is named <code>hidden_clue.png</code> — try it! 😉</p>
+    </div>
+    <p><a class="home-button" href="../index.html">🏠 Back to Mission Control</a></p>
+
+    <script>
+        function showHint() {
+            document.getElementById('hint').style.display = "block";
+        }
+    </script>
+</body>
+</html>
