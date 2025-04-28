@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎉 Command Injection Success</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff00ff;
+            font-size: 3em;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 30px #ff00ff; }
+        }
+        .file {
+            background-color: #111;
+            color: #0f0;
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            text-align: left;
+            font-size: 16px;
+        }
+        .home-button {
+            padding: 12px 25px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .home-button:hover {
+            background-color: #ff00ff;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 SYSTEM BREACHED!</h1>
+    <p>You successfully injected a command and revealed the secrets below. 🕶️</p>
+    <div class="file">
+        <strong>secrets.txt</strong><br>
+        -----------------------------<br>
+        API_KEY=1234-FAKE-SECRET-5678<br>
+        admin_password=superSecure!!!<br>
+        vault_key=🔐 0p3n_S3sam3!<br>
+    </div>
+    <div class="file">
+        <strong>/etc/passwd (excerpt)</strong><br>
+        -----------------------------<br>
+        root:x:0:0:root:/root:/bin/bash<br>
+        student:x:1000:1000:Student:/home/student:/bin/bash<br>
+        hacker:x:1337:1337:Hacker:/home/hack:/bin/bash
+    </div>
+    <p>💡 Lesson: Never trust user input in command-line functions. Validate and sanitize everything!</p>
+    <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
+</body>
+</html>
