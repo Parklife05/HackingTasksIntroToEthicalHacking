@@ -2,26 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LFI Challenge Success!</title>
+    <title>🎉 LFI Success!</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #111; color: #0f0; text-align: center; }
-        .output { margin-top: 20px; padding: 10px; border: 1px dashed #0f0; width: 80%; margin-left: auto; margin-right: auto; }
-        .home-button { display: inline-block; margin-top: 30px; color: #0ff; text-decoration: none; font-weight: bold; }
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff00ff;
+            font-size: 3em;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 30px #ff00ff; }
+        }
+        .celebrate {
+            font-size: 5em;
+            margin: 30px 0;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .file {
+            background-color: #111;
+            color: #0f0;
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            text-align: left;
+            font-size: 16px;
+        }
+        .home-button {
+            padding: 12px 25px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .home-button:hover {
+            background-color: #ff00ff;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
-    <h1>🎉 Success! You've Exploited Local File Inclusion!</h1>
-    <p>Here's the example contents of <code>/etc/passwd</code>:</p>
-
-    <div class="output">
+    <div class="celebrate">🎉🗂️🎉</div>
+    <h1>💥 SYSTEM FILE BREACHED! 💥</h1>
+    <p class="message">You've successfully exploited the Local File Inclusion vulnerability and viewed sensitive system data!</p>
+    <div class="file">
+        <strong>/etc/passwd (excerpt)</strong><br>
+        -----------------------------<br>
         root:x:0:0:root:/root:/bin/bash<br>
-        admin:x:1001:1001:Admin User:/home/admin:/bin/bash<br>
-        student:x:1002:1002:Student User:/home/student:/bin/bash<br>
-        guest:x:1003:1003:Guest User:/home/guest:/bin/bash<br>
+        daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin<br>
+        student:x:1000:1000:Student:/home/student:/bin/bash<br>
+        hacker:x:1337:1337:Hacker:/home/hack:/bin/bash
     </div>
-
-    <p>⚠️ This is why websites must validate inputs carefully!</p>
-    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
+    <p class="message">Lesson: Always sanitize file inputs and validate paths on the server side!</p>
+    <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
 </body>
 </html>
