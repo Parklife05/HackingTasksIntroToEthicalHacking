@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Hidden URL Challenge</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>🕵️‍♂️ Hidden URL Challenge</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+        }
+        .challenge-box {
+            border: 2px dashed #ff00ff;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+        }
+        input {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            padding: 8px;
+            width: 300px;
+        }
+        .button, .home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .button:hover, .home-button:hover {
+            background-color: #ff00ff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .hint { margin-top: 15px; font-style: italic; color: #888; display: none; }
+        .output { margin-top: 20px; font-size: 16px; color: #0f0; font-weight: bold; }
+    </style>
+</head>
 <body>
     <h1>🕵️‍♂️ Hidden URL Challenge</h1>
-    <p>Some pages try to hide sensitive files by using secret filenames…</p>
-    <p>Can you guess the correct page name? (Hint: What’s the opposite of visible?)</p>
-    <p><a href="secretpage.html">Try to guess the secret page here!</a></p>
-    <p><a href="../index.html">🏠 Back to Home</a></p>
+    <div class="challenge-box">
+        <p>🚩 There's a hidden page somewhere on this site, but it’s not linked anywhere...</p>
+        <p>Can you guess the hidden filename? 🤔 Try something like <code>hidden.html</code>, <code>secret.html</code>, or <code>topsecret.html</code>.</p>
+
+        <input type="text" id="filename" placeholder="Guess the filename (e.g., secret.html)">
+        <br>
+        <button class="button" onclick="validateGuess()">Submit Guess</button>
+        <button class="button" onclick="showHint()">💡 Show Hint</button>
+        <p id="hint" class="hint">Hint: It's two words, no spaces, lowercase... something like <code>supersecret.html</code>. 😉</p>
+        <p id="result" class="output"></p>
+    </div>
+
+    <p><a class="home-button" href="../index.html">🏠 Back to Mission Control</a></p>
+
+    <script>
+        function validateGuess() {
+            const guess = document.getElementById('filename').value.trim().toLowerCase();
+            const result = document.getElementById('result');
+            if (guess === "supersecret.html") {
+                window.location.href = "supersecret.html";
+            } else {
+                result.innerText = "❌ Nope, that file doesn’t exist here. Try again!";
+            }
+        }
+
+        function showHint() {
+            document.getElementById('hint').style.display = "block";
+        }
+    </script>
 </body>
 </html>
