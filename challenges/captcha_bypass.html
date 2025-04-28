@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>CAPTCHA Bypass Challenge</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>🤖 CAPTCHA Bypass Challenge</title>
+    <style>
+        body { text-align: center; background-color: #0a0a0a; color: #00ffcc; font-family: 'Courier New', Courier, monospace; }
+        h1 { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+        .captcha-box { border: 2px dashed #ff00ff; padding: 20px; margin: 30px auto; width: 300px; }
+        .hint { margin-top: 20px; font-style: italic; color: #888; display: none; }
+        .home-button { margin-top: 30px; padding: 10px 20px; background-color: #00ffcc; color: #0a0a0a; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .home-button:hover { background-color: #ff00ff; color: #ffffff; transform: scale(1.1); transition: all 0.3s ease-in-out; }
+    </style>
+</head>
 <body>
     <h1>🤖 CAPTCHA Bypass Challenge</h1>
-    <p>What is 2 + 2?</p>
-    <input type="text" id="captcha" placeholder="Enter your answer">
-    <button onclick="checkCaptcha()">Submit</button>
-    <button onclick="showHint()">💡 Show Hint</button>
-    <p id="result"></p>
-    <p id="hint" style="display:none;">Hint: The code behind this page might give it away… 😉</p>
+    <p>🧩 Prove you're human! Solve this impossible question:</p>
+    <div class="captcha-box">
+        <p><strong>What is the square root of 67,329?</strong></p>
+        <input type="text" id="captcha" placeholder="Enter your answer">
+        <button onclick="checkCaptcha()">Submit</button>
+        <button onclick="showHint()">💡 Show Hint</button>
+        <p id="result" style="color: red; font-weight: bold;"></p>
+    </div>
+    <p id="hint" class="hint">Hint: Maybe the developer hardcoded the answer into the code? Check carefully… 😉</p>
+
     <script>
         function checkCaptcha() {
             const answer = document.getElementById('captcha').value.trim();
-            if (answer === "4") {
+            // Flaw: Hardcoded answer instead of calculating
+            if (answer === "259") {
                 window.location.href = "captcha_success.html";
             } else {
-                document.getElementById('result').innerText = "❌ Wrong answer!";
+                document.getElementById('result').innerText = "❌ Nope! Are you a bot?";
             }
         }
         function showHint() {
             document.getElementById('hint').style.display = "block";
         }
     </script>
-    <p><a href="../index.html">🏠 Back to Home</a></p>
+    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
 </body>
 </html>
