@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations!</title>
+    <title>🎉 Login Success!</title>
     <style>
         body {
-            background-color: #282c34;
-            color: #00ff00;
-            font-family: "Courier New", Courier, monospace;
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
             text-align: center;
             padding: 50px;
         }
-
         h1 {
-            font-size: 50px;
+            color: #ff00ff;
+            font-size: 3em;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: pulse 1s infinite alternate;
         }
-
-        p {
-            font-size: 24px;
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 30px #ff00ff; }
+        }
+        .message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .celebrate {
+            font-size: 5em;
+            margin: 30px 0;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .file {
+            background-color: #111;
+            color: #0f0;
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            text-align: left;
+            font-size: 16px;
+        }
+        .home-button {
+            padding: 12px 25px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .home-button:hover {
+            background-color: #ff00ff;
+            color: #ffffff;
+            transform: scale(1.1);
         }
     </style>
 </head>
-
 <body>
-    <h1>Congratulations, Hacker!</h1>
-    <p>🎉 You’ve successfully hacked the system (ethically, of course)!</p>
-    <p>Your new title: <strong>Junior Ethical Hacker</strong></p>
-    <p>Remember: With great power comes great responsibility. Stay ethical!</p>
-    <a href="login.html" style="color: #00ff00; text-decoration: none; font-size: 20px;">Back to Login</a>
-    <style>
-    .home-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #ffffff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-    }
-    .home-button:hover {
-        background-color: #0056b3;
-        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
-</style>
-
-<p>
-<p><a href="../index.html" style="color: blue; text-decoration: none;">🏠 Back to Home</a></p></body>
-
+    <div class="celebrate">🎉🔐🎉</div>
+    <h1>💥 ACCESS GRANTED! 💥</h1>
+    <p class="message">You found the hidden credentials and cracked the login challenge like a true hacker! 🕶️</p>
+    <div class="file">
+        <strong>FLAG:</strong> HACKER_SKILLS_UNLOCKED<br>
+        <strong>Lesson:</strong> Comments in code can accidentally expose sensitive information.<br>
+        <strong>Tip:</strong> Always sanitize your code before deployment!
+    </div>
+    <p class="message">Remember: Real hackers use their skills ethically! 💖</p>
+    <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
 </body>
-
 </html>
