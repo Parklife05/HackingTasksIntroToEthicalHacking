@@ -2,68 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Injection Challenge</title>
+    <title>💻 Command Injection Challenge</title>
     <style>
-        .hint-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
             text-align: center;
-            cursor: pointer;
+            padding: 50px;
         }
-        .hint-button:hover {
-            background-color: #218838;
+        h1 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: glow 1.5s infinite alternate;
         }
-        .hint-text {
-            margin-top: 20px;
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+        }
+        .terminal {
+            background-color: #111;
+            color: #0f0;
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            width: 80%;
+            margin: 30px auto;
+            text-align: left;
+        }
+        input {
+            font-family: 'Courier New', monospace;
             font-size: 16px;
-            color: #333;
-            display: none;
+            padding: 8px;
+            width: 300px;
         }
+        .button, .home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover, .home-button:hover {
+            background-color: #ff00ff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .hint { margin-top: 15px; font-style: italic; color: #888; display: none; }
+        .output { margin-top: 20px; font-size: 16px; color: #0f0; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>Command Injection Challenge</h1>
-    <p>Your mission: Use the correct command to reveal the hidden files.</p>
-
-    <form onsubmit="event.preventDefault(); validateCommand();">
-        <label for="command">Enter Command:</label><br>
-        <input type="text" id="command" placeholder="Enter command (e.g., ls)">
-        <br><br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <p>
-        <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
-    </p>
-    <p id="hint" class="hint-text">Hint: Try commands like <code>ls</code> or <code>dir</code> to list files.</p>
-
-    <p id="result" style="color: green; font-weight: bold; margin-top: 20px;"></p>
+    <h1>💻 Command Injection Challenge</h1>
+    <p>Enter a command to reveal hidden system secrets. Can you trick the server? 😈</p>
+    <input type="text" id="command" placeholder="Try a command like ls or whoami">
+    <br>
+    <button class="button" onclick="validateCommand()">Execute</button>
+    <button class="button" onclick="showHint()">💡 Show Hint</button>
+    <p id="hint" class="hint">Hint: Try something that lists files or users… 😉</p>
+    <p id="result" class="output"></p>
+    <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
 
     <script>
         function validateCommand() {
-            
-            const command = document.getElementById("command").value;
-            
-            if (command === "ls" || command === "dir") {
-                window.location.href = "secret_credentials.html";}
-            else {
-                document.getElementById("result").innerText = "❌ Invalid command. Try again!";
+            const cmd = document.getElementById('command').value.trim();
+            const result = document.getElementById('result');
+            if (["ls", "dir", "cat secrets.txt", "whoami", "cat /etc/passwd"].includes(cmd)) {
+                window.location.href = "command_success.html";
+            } else {
+                result.innerText = "❌ Invalid command. Try again!";
             }
         }
 
         function showHint() {
-            const hint = document.getElementById("hint");
-            hint.style.display = "block";
+            document.getElementById('hint').style.display = "block";
         }
     </script>
-
-<p><a href="../index.html" style="color: blue; text-decoration: none;">🏠 Back to Home</a></p>
 </body>
 </html>
