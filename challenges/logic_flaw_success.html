@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎉 Logic Flaw Exploited!</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff00ff;
+            font-size: 3em;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 30px #ff00ff; }
+        }
+        .celebrate { font-size: 5em; margin: 30px 0; animation: spin 2s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .message { font-size: 1.5em; margin-top: 20px; }
+        .file {
+            background-color: #111;
+            color: #0f0;
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            text-align: left;
+            font-size: 16px;
+        }
+        .home-button {
+            padding: 12px 25px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .home-button:hover {
+            background-color: #ff00ff;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="celebrate">🎉💳🎉</div>
+    <h1>💥 LOGIC FLAW EXPLOITED! 💥</h1>
+    <p class="message">You bypassed the price check and bought the item for £0! 🕶️💸</p>
+    <div class="file">
+        <strong>FLAG:</strong> LOGIC_IS_THE_ACHILLES_HEEL<br>
+        <strong>Lesson:</strong> Never trust client-side data! Always validate inputs on the server side to avoid logic flaws like this one.
+    </div>
+    <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
+</body>
+</html>
