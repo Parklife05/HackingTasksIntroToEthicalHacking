@@ -2,50 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local File Inclusion (LFI) Challenge</title>
+    <title>🗂️ Local File Inclusion Challenge</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #111; color: #0f0; text-align: center; }
-        .output { margin-top: 20px; padding: 10px; border: 1px dashed #0f0; width: 80%; margin-left: auto; margin-right: auto; }
-        input { padding: 5px; width: 300px; }
-        button { padding: 5px 10px; margin: 5px; }
-        .hint-button { background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .hint-button:hover { background-color: #218838; }
-        .hint-text { margin-top: 10px; color: #0ff; display: none; }
-        .home-button { display: inline-block; margin-top: 30px; color: #0ff; text-decoration: none; font-weight: bold; }
+        body {
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff; }
+            to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+        }
+        .challenge-box {
+            border: 2px dashed #ff00ff;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+        }
+        input {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            padding: 8px;
+            width: 300px;
+        }
+        .button, .home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .button:hover, .home-button:hover {
+            background-color: #ff00ff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .hint { margin-top: 15px; font-style: italic; color: #888; display: none; }
+        .output { margin-top: 20px; font-size: 16px; color: #0f0; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>🕵️‍♂️ Local File Inclusion (LFI) Challenge</h1>
-    <p>Try to load a file from the server by entering the file path below!</p>
-    <p>Hint: Sometimes files are stored outside of the folder you're allowed to access… 😉</p>
-
-    <input type="text" id="filepath" placeholder="Enter file path">
-    <button onclick="checkPath()">Submit</button>
-    <button class="hint-button" onclick="showHint()">💡 Show Hint</button>
-
-    <div id="result" class="output"></div>
-    <p id="hint" class="hint-text">Hint: Try typing <code>../../../../etc/passwd</code> into the box!</p>
-
+    <h1>🗂️ Local File Inclusion (LFI) Challenge</h1>
+    <div class="challenge-box">
+        <p>🚀 Your mission: The server has an upload feature — but it might let you request files by name...</p>
+        <p>Type a filename to try and view its contents (hint: try sensitive system files!) 😈</p>
+        <input type="text" id="filename" placeholder="Try entering passwd">
+        <br>
+        <button class="button" onclick="validateFilename()">Load File</button>
+        <button class="button" onclick="showHint()">💡 Show Hint</button>
+        <p id="hint" class="hint">Hint: Think about Linux system files... maybe <code>passwd</code>?</p>
+        <p id="result" class="output"></p>
+    </div>
     <p><a class="home-button" href="../index.html">🏠 Back to Home</a></p>
 
     <script>
-        function checkPath() {
-            const path = document.getElementById("filepath").value.trim();
-            const validPaths = ["../../../../etc/passwd", "../../../etc/passwd", "../../../../../etc/passwd"];
-            const resultBox = document.getElementById("result");
-
-            if (validPaths.includes(path)) {
-                // Redirect to success page
+        function validateFilename() {
+            const file = document.getElementById('filename').value.trim().toLowerCase();
+            const result = document.getElementById('result');
+            if (file === "passwd" || file === "/etc/passwd") {
                 window.location.href = "lfi_success.html";
             } else {
-                resultBox.innerHTML = "❌ File not found. Try again!";
+                result.innerText = "❌ File not found or access denied. Try again!";
             }
         }
 
         function showHint() {
-            const hint = document.getElementById("hint");
-            hint.style.display = "block";
+            document.getElementById('hint').style.display = "block";
         }
     </script>
 </body>
