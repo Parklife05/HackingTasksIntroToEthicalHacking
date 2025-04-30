@@ -2,30 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🤖 Robots.txt Victory!</title>
+  <title>🤖 Robots.txt Victory</title>
   <style>
     body {
       background-color: #0a0a0a;
       color: #00ffcc;
-      font-family: monospace;
+      font-family: 'Courier New', Courier, monospace;
       text-align: center;
       padding: 50px;
     }
-    h1 { color: #ff00ff; }
-    .flag {
-      background-color: #111;
-      border: 2px dashed #0f0;
+
+    h1 {
+      color: #ff00ff;
+      font-size: 3em;
+      text-shadow: 0 0 10px #ff00ff;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { text-shadow: 0 0 10px #ff00ff; }
+      to { text-shadow: 0 0 30px #ff00ff; }
+    }
+
+    .flag-box {
+      margin-top: 40px;
       padding: 20px;
+      border: 2px dashed #00ffcc;
+      background-color: #111;
+      font-size: 1.4em;
+      color: #0f0;
+      box-shadow: 0 0 15px #00ffcc66;
       display: inline-block;
-      margin-top: 30px;
+    }
+
+    .home-button {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #00ffcc;
+      color: #0a0a0a;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: #ff00ff;
+      color: #fff;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
+
   <h1>🎉 You Crawled Where You Shouldn’t!</h1>
-  <div class="flag">
+
+  <div class="flag-box">
     FLAG: SPIDERS_CAN_FIND_SECRETS
   </div>
-  <p><a href="../index.html">🏠 Back to Mission Control</a></p>
+
+  <p><a class="home-button" href="../index.html">🏠 Back to Mission Control</a></p>
+
 </body>
 </html>
