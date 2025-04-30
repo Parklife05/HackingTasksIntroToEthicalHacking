@@ -6,7 +6,7 @@
 </head>
 <body style="background-color:#111; color:#ff4444; font-family:'Comic Sans MS'; text-align:center;">
   <h1>🚨 LOG IN TO SUDENT PORTLE</h1>
-  <form>
+  <form onsubmit="event.preventDefault();">
     <input type="text" placeholder="Usrename"><br><br>
     <input type="password" placeholder="Passwrd"><br><br>
     <button disabled>Sign In (disabled)</button>
@@ -14,8 +14,13 @@
   <p style="font-size:12px;">⚠️ No HTTPS • Weird fonts • Suspicious link</p>
   <a href="http://student-portal-login.ru">"Help Desk Support"</a>
   <br><br>
-  <a href="phishing_fail.html" style="display:inline-block; margin-top: 30px; background:#cc0000; padding:12px 20px; color:white; text-decoration:none; border-radius:6px;">
+
+  <!-- Fake Submit Button -->
+  <button onclick="window.location.href='phishing_fail.html';" 
+    style="margin-top: 30px; background:#cc0000; padding:12px 20px; color:white; font-weight:bold; border:none; border-radius:6px; cursor:pointer;">
     😅 This is the Real Login
-  </a>
+  </button>
+
+  <p style="margin-top: 30px;"><a href="phishing_challenge.html" style="color: #ff00ff;">⬅️ Back to Challenge</a></p>
 </body>
 </html>
