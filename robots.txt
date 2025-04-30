@@ -1,3 +1,3 @@
 # 🤖 Robots.txt Challenge
 User-agent: *
-Disallow: /hidden_folder/
+Disallow: /hidden_folder/robots_flag.html
