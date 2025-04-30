@@ -2,53 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>✅ Access Granted!</title>
+  <title>🛡️ Admin Dashboard (Accessed!)</title>
   <style>
     body {
-      background-color: #0a0a0a;
+      background-color: #121212;
       color: #00ffcc;
       font-family: 'Courier New', Courier, monospace;
-      text-align: center;
-      padding: 50px;
+      padding: 30px;
     }
+
     h1 {
-      font-size: 3em;
       color: #ff00ff;
-      animation: pulse 1s infinite alternate;
+      font-size: 2.5em;
+      text-align: center;
+      text-shadow: 0 0 10px #ff00ff;
     }
-    @keyframes pulse {
-      from { text-shadow: 0 0 10px #ff00ff; }
-      to { text-shadow: 0 0 30px #ff00ff; }
+
+    .dashboard {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 10px #00ffcc88;
     }
-    .flag {
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .data-table th, .data-table td {
+      border: 1px solid #00ffcc44;
+      padding: 10px;
+      text-align: left;
+      background-color: #222;
+    }
+
+    .data-table th {
+      background-color: #333;
+      color: #ff00ff;
+    }
+
+    .flag-box {
       background-color: #111;
-      color: #0f0;
-      border: 2px dashed #00ffcc;
-      padding: 20px;
-      width: 60%;
-      margin: 20px auto;
-      font-size: 16px;
-    }
-    .home-button {
+      border: 2px dashed #ff00ff;
+      color: #fff;
+      padding: 15px;
       margin-top: 30px;
-      background: #00ffcc;
-      padding: 10px 20px;
-      border: none;
       font-weight: bold;
       font-size: 16px;
-      border-radius: 6px;
+      text-align: center;
+    }
+
+    .home-button {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #00ffcc;
       color: #000;
+      font-weight: bold;
       text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .home-button:hover {
+      background-color: #ff00ff;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <h1>✅ Access Granted!</h1>
-  <div class="flag">
-    <strong>FLAG:</strong> SQL_INJECTION_WORKED<br>
-    You bypassed authentication using SQL logic! 🎉
+  <h1>🛡️ Admin Dashboard Access Granted</h1>
+
+  <div class="dashboard">
+    <p>Welcome, admin. You’ve successfully bypassed login using a SQL injection vulnerability.</p>
+
+    <h2>User Table Extract</h2>
+    <table class="data-table">
+      <tr><th>Username</th><th>Email</th><th>Password (hashed)</th></tr>
+      <tr><td>admin</td><td>admin@example.com</td><td>$2a$10$...jklh12</td></tr>
+      <tr><td>user123</td><td>test@site.com</td><td>$2a$10$...xyz889</td></tr>
+      <tr><td>jane_doe</td><td>jane@secure.io</td><td>$2a$10$...33adq</td></tr>
+    </table>
+
+    <div class="flag-box">
+      FLAG: SQL_INJECTION_UNLOCKED_ADMIN_ACCESS
+    </div>
   </div>
+
   <a class="home-button" href="../index.html">🏠 Back to Mission Control</a>
 </body>
 </html>
