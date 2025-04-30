@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 SQL Injection Login Bypass</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+    .box {
+      background-color: #111;
+      padding: 30px;
+      border: 2px dashed #00ffcc;
+      width: 300px;
+      margin: auto;
+    }
+    input {
+      margin: 10px;
+      padding: 10px;
+      width: 90%;
+      background: #222;
+      color: #0f0;
+      border: 1px solid #00ffcc;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00ffcc;
+      color: #0a0a0a;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff00ff;
+      color: #fff;
+    }
+    .hint, .explanation {
+      margin-top: 20px;
+      color: #ccc;
+      font-style: italic;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 SQL Injection Login Bypass</h1>
+  <p>Can you bypass the login using a classic SQL injection technique?</p>
+
+  <div class="box">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <br>
+    <button onclick="login()">Login</button>
+    <button onclick="showHint()">💡 Hint</button>
+    <button onclick="showExplanation()">📘 Explanation</button>
+    <p id="result" style="color: #0f0; font-weight: bold;"></p>
+  </div>
+
+  <div id="hint" class="hint">
+    Try entering:  
+    <code>' OR '1'='1</code> in **both** fields.  
+    Why does that work? 🤔
+  </div>
+
+  <div id="explanation" class="explanation">
+    In a vulnerable SQL-based login system, this input tricks the database into thinking the condition is always true.<br><br>
+    For example:<br>
+    <code>SELECT * FROM users WHERE username = '[input]' AND password = '[input]'</code><br><br>
+    becomes:<br>
+    <code>SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '' OR '1'='1'</code><br>
+    This bypasses the login check!
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if (user === "' OR '1'='1" && pass === "' OR '1'='1") {
+        window.location.href = "sql_login_success.html";
+      } else {
+        document.getElementById("result").innerText = "❌ Login failed.";
+      }
+    }
+
+    function showHint() {
+      document.getElementById("hint").style.display = "block";
+    }
+
+    function showExplanation() {
+      document.getElementById("explanation").style.display = "block";
+    }
+  </script>
+
+  <p><a href="../index.html" style="color:#00ffcc">🏠 Back to Home</a></p>
+</body>
+</html>
